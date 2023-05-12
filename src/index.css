@@ -16,35 +16,11 @@ body {
   height: 100%; 
   width: 100%;
   margin: 0;
-  background-image: url("./landing-page.jpg");
+  background-image: url("./assets/landing-page.jpg");
   background-size: 100% 100%;
   position: fixed;
 }
 
-.App {
-  
-}
 
-.page {
-  box-shadow: 1px 1px 1px;
-  margin: 11% 30%;
-  background-image: url("./page_bg.jpg");
-  background-size: 100%;
-  border-radius: 10px;
-  text-align: center;
-  padding: 2% 2%;
-}
 
-.page > h1 {
-  font-weight: 900;
-}
-
-.page > h3 {
-  margin-bottom: 5px;
-}
-
-.page > p{
-  margin: 5px 5px;
-  font-weight: 500;
-}
 
