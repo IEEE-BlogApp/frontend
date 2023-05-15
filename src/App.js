@@ -1,3 +1,4 @@
+
 import React, { useContext, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import axios from 'axios';
@@ -14,6 +15,7 @@ import CreatedBlogPage from './components/CreatedBlogPage';
 import BlogsDetailPage from './components/BlogsDetailPage';
 
 import { Context } from './index';
+
 
 function App() {
   const { user, setUser, isAuthenticated, setIsAuthenticated, setLoading,loading } = useContext(Context);
@@ -45,6 +47,7 @@ function App() {
   }
 
   return (
+
     <BrowserRouter>
       <div className="App">
         <Routes>
@@ -64,6 +67,7 @@ function App() {
         <Toaster />
       </div>
     </BrowserRouter>
+
   );
 }
 

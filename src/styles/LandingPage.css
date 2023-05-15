@@ -1,0 +1,68 @@
+.uppage {
+    box-shadow: 1px 1px 1px;
+    margin: 11% 30%;
+    background-image: url("../assets/page_bg.jpg");
+    background-size: 100%;
+    border-radius: 10px;
+    text-align: center;
+    padding: 2% 2%;
+  }
+  
+  .uppage > h1 {
+    font-weight: 900;
+  }
+  
+  .uppage > h3 {
+    margin-bottom: 5px;
+  }
+  
+  .uppage > p{
+    margin: 5px 5px;
+    font-weight: 500;
+  }
+  .downPage{
+    height: 100%; 
+  width: 100%;
+  margin: 0;
+  background-image: url("../assets/landing-page.jpg");
+  background-size: 100% 100%;
+  position: fixed;
+  }
+
+  .lp_navbar {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .lp_buttons {
+    justify-content: left;
+    display: flex;
+    
+  }
+  
+  .lp_login-button {
+   
+    
+    
+    margin-right: 1rem;
+  }
+  .lp_register-button{
+  
+    margin-right: 1rem;
+  }
+
+  .lp_footer {
+    background-color: black;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .lp_a{
+    color:white;
+  }
