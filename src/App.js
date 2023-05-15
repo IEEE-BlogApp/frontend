@@ -1,4 +1,9 @@
-import React,{useContext,useEffect} from 'react';
+import React, { useContext, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import axios from 'axios';
+import Spinner from './utils/Spinner';
+import { Toaster } from 'react-hot-toast';
+
 import LandingPage from './components/LandingPage';
 import HomePage from './components/HomePage';
 import LoginPage from './components/LoginPage';
@@ -7,46 +12,57 @@ import ProfilePage from './components/ProfilePage';
 import CreateBlogPage from './components/CreateBlogPage';
 import CreatedBlogPage from './components/CreatedBlogPage';
 import BlogsDetailPage from './components/BlogsDetailPage';
-import {Context} from "./index";
-import {Toaster} from "react-hot-toast"
-import axios from "axios";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import { Context } from './index';
+
 function App() {
-  const { user,setUser, setIsAuthenticated, setLoading,isAuthenticated } = useContext(Context);
-useEffect(()=>{
-  setLoading(true);
-  axios.get("http://localhost:4000/api/v1/users/me",{
-    withCredentials: true, 
-  })
-  .then((res)=>{
-    setUser(res.data.user);
-    console.log(user)
+  const { user, setUser, isAuthenticated, setIsAuthenticated, setLoading,loading } = useContext(Context);
+
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get('http://localhost:4000/api/v1/users/me', {
+        withCredentials: true,
+      })
+      .then((res) => {
+        setUser(res.data.user);
         setIsAuthenticated(true);
         setLoading(false);
-  })
-  .catch((error)=>{
-    console.log(error);
-    setUser({});
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log("wtf")
+        setUser({});
         setIsAuthenticated(false);
         setLoading(false);
-  })
-},[isAuthenticated])
+      });
+      console.log(isAuthenticated)
+  }, []);
+
+  if (loading) {
+    // Render a loading indicator while checking authentication
+    return <Spinner />
+  }
 
   return (
     <BrowserRouter>
-    <div className="App">
-    <Routes>
-    <Route path="/" element={<LandingPage />} />
-    <Route path="/login" element={<LoginPage />} />
-    <Route path="/register" element={<RegisterPage />} />
-    <Route path="/home" element={<HomePage />} />
-    <Route path="/createNew" element={<CreateBlogPage />} />
-    <Route path="/created" element={<CreatedBlogPage />} />
-    <Route path="/profile" element={<ProfilePage />} />  
-    <Route path="/blogs/:id" element={<BlogsDetailPage />} />
-    </Routes>
-    <Toaster />
-    </div>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/home" element={<HomePage />} />
+          {/* Add the following route with the authentication check */}
+          <Route
+            path="/createNew"
+            element=<CreateBlogPage />
+          />
+          <Route path="/created" element={<CreatedBlogPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/blogs/:id" element={<BlogsDetailPage />} />
+        </Routes>
+        <Toaster />
+      </div>
     </BrowserRouter>
   );
 }

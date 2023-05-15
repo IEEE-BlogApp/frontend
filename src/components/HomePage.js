@@ -6,65 +6,31 @@ import axios from "axios";
 import Spinner from "../utils/Spinner.js";
 import { Routes, Route, Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
-import "../styles/HomePage.css"
+import "../styles/HomePage.css";
+
 function HomePage() {
   const {
     user,
     setUser,
     isAuthenticated,
-    setIsAuthenticated, 
+    setIsAuthenticated,
     loading,
     setLoading,
   } = useContext(Context);
-console.log(loading)
+
   const [offset, setOffset] = useState(1);
   const [data, setData] = useState([]);
   const [perPage] = useState(6);
   const [pageCount, setPageCount] = useState(0);
-
-  // useEffect(() => {
-  //   setLoading(true);
-  //   axios
-  //     .get("http://localhost:4000/api/v1/users/me", {
-  //       withCredentials: true,
-  //     })
-  //     .then((res) => {
-  //       setUser(res.data.user);
-  //       setIsAuthenticated(true);
-  //       setLoading(false);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //       setIsAuthenticated(false);
-  //       setLoading(false);
-  //     });})
-  //   // axios
-  //   //   .get("http://localhost:4000/api/v1/blogs/all", {
-  //   //     withCredentials: true,
-  //   //   })
-  //   //   .then((res) => {
-  //   //     const k=res.data.blogs
-  //   //     const slice=slice.map(offset,offset+perPage);
-
-  //   //     setBlogs(slice);
-  //   //   })
-  //   //   .catch((err) => {
-  //   //     console.log(err);
-  //   //   });
-  // }, []);
 
   const getData = async () => {
     const res = await axios.get(`http://localhost:4000/api/v1/blogs/all`, {
       withCredentials: true,
     });
     const data = res.data.blogs;
-    let x=(offset-1)*perPage
-    let y=offset*perPage
-    const slice = data.slice(x,y);
-    //   const postData = slice.map(pd => <div key={pd.id}>
-    //       <p>{pd.title}</p>
-    //       <img src={pd.thumbnailUrl} alt=""/>
-    //   </div>)
+    let x = (offset - 1) * perPage;
+    let y = offset * perPage;
+    const slice = data.slice(x, y);
     setData(slice);
     setPageCount(Math.ceil(data.length / perPage));
   };

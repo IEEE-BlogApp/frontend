@@ -30,6 +30,7 @@ export default function Navbar() {
       toast.success(data.message);
       setIsAuthenticated(false);
       setLoading(false);
+      return <Navigate to={"/login"} />
     } catch (error) {
       toast.error(error.response.data.message);
       setIsAuthenticated(true);
@@ -70,7 +71,7 @@ export default function Navbar() {
                 <MDBNavbarLink href='/createNew'>Create</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink disabled={loading} onClick={logoutHandler} href='#'>Logout</MDBNavbarLink>
+                <MDBNavbarLink disabled={loading} onClick={logoutHandler} href='/login'>Logout</MDBNavbarLink>
               </MDBNavbarItem>
             </MDBNavbarNav>
           </MDBCollapse>

@@ -1,31 +1,48 @@
-import React, { useState, useEffect, useContext } from "react";
-import Navbar from "./Navbar";
+import React, { useState, useContext } from "react";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import { Navigate } from "react-router-dom";
+import { Context } from "../index";
+import Navbar from "./Navbar";
+import Spinner from "../utils/Spinner";
 
 function CreateBlogPage() {
+  // const { isAuthenticated, loading } = useContext(Context);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-console.log("hello")
-  const submitHandler = (e) => {
+
+  const submitHandler =async (e) => {
     e.preventDefault();
-    
+
     const newBlog = {
       title: title,
       description: description,
     };
-    axios
-      .post("http://localhost:4000/api/v1/blogs/new", newBlog)
+
+   await axios
+      .post("http://localhost:4000/api/v1/blogs/new", newBlog, {
+        withCredentials: true,
+      })
       .then((res) => {
         toast.success(res.data.message);
         setTitle("");
         setDescription("");
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
 
+  // if (loading) {
+  //   return <Spinner />;
+  // }
+
+  // if (!isAuthenticated) {
+  //   return <Navigate to="/login" />;
+  // }
+
   return (
     <div>
-    
       <Navbar />
       <div className="container">
         <form onSubmit={submitHandler} className="mt-4">
