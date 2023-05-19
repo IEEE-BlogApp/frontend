@@ -1,4 +1,6 @@
 
+import './styles/LandingPage.css'
+
 import React, { useContext, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import axios from 'axios';
@@ -47,27 +49,29 @@ function App() {
   }
 
   return (
+      <div>
+        <LandingPage />
 
-    <BrowserRouter>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/home" element={<HomePage />} />
-          {/* Add the following route with the authentication check */}
-          <Route
-            path="/createNew"
-            element=<CreateBlogPage />
-          />
-          <Route path="/created" element={<CreatedBlogPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/blogs/:id" element={<BlogsDetailPage />} />
-        </Routes>
-        <Toaster />
+        <BrowserRouter>
+          <div className="App">
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/home" element={<HomePage />} />
+              {/* Add the following route with the authentication check */}
+              <Route
+                path="/createNew"
+                element= <CreateBlogPage />
+              />
+              <Route path="/created" element={<CreatedBlogPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/blogs/:id" element={<BlogsDetailPage />} />
+            </Routes>
+            <Toaster />
+          </div>
+        </BrowserRouter>
       </div>
-    </BrowserRouter>
-
   );
 }
 
