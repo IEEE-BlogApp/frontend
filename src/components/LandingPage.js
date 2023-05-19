@@ -4,6 +4,10 @@ import { MDBBtn } from 'mdb-react-ui-kit';
 function LandingPage() {
   return (
     <div className="downPage">
+      <header className="lp_header">
+        <div className="header_logo"></div>
+        <h3>IEEEBlogs</h3>
+      </header>
     <nav className="lp_navbar">
         {/* <img src={logo} alt="logo" className="logo" /> */}
         <div className="lp_buttons">
@@ -21,6 +25,10 @@ function LandingPage() {
       </div>
       <footer className="lp_footer">
         &copy; 2023 Career Development Website
+        <div className="links">
+          <a href="https://www.youtube.com/watch?v=oHg5SJYRHA0">Youtube</a>
+          <a href="https://github.com/IEEE-BlogApp/frontend">Github</a>
+        </div>
       </footer>
     </div>
   );

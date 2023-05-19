@@ -54,15 +54,49 @@
   }
 
   .lp_footer {
-    background-color: black;
+    background-color: rgb(12, 12, 12);
     color: white;
     padding: 1rem;
-    text-align: center;
     position: absolute;
     bottom: 0;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .lp_a{
     color:white;
   }
+
+.lp_header {
+  background-color: rgb(12, 12, 12);
+  color: white;
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.lp_header > .header_logo {
+  background-image: url("../assets/logo.png");
+  background-size:cover;
+  padding: 1.5rem;
+  margin-top: -10px;
+  margin-left: -10px;
+}
+
+.lp_header > h3 {
+  margin-left: 30px;
+}
+
+.links > a {
+  margin-left: 40px;
+  margin-right: 20px;
+}
+
+
+
