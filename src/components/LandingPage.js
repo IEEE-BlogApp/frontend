@@ -20,7 +20,7 @@ function LandingPage() {
         <h3>Join us now!</h3>
       </div>
       <footer className="lp_footer">
-        &copy; 2023 Career Development Website
+        &copy; 2023 Blog Website
       </footer>
     </div>
   );
