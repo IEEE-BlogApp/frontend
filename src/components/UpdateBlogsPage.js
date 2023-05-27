@@ -6,6 +6,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { Context } from "../index.js";
 import { Navigate } from "react-router-dom";
+import "../styles/UpdateBlogPage.css";
 
 function UpdateBlogsPage() {
   const { user } = useContext(Context);
@@ -71,38 +72,38 @@ function UpdateBlogsPage() {
     <>
       <div>
         <Navbar />
-        <div className="container">
+        <div className="ubp_container">
           <form onSubmit={submitHandler} className="mt-4">
             <div className="mb-3">
-              <label htmlFor="title" className="form-label">
+              <label htmlFor="title" className="ubp_form-label">
                 Title
               </label>
               <input
                 type="text"
-                className="form-control"
+                className="ubp_form-control"
                 id="title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="description" className="form-label">
+              <label htmlFor="description" className="ubp_form-label">
                 Description
               </label>
               <textarea
-                className="form-control"
+                className="ubp_form-control"
                 id="description"
                 rows="4"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               ></textarea>
             </div>
-            <button type="submit" className="btn btn-primary mr-2">
+            <button type="submit" className="btn ubp_btn-primary mr-2">
               Update Blog
             </button>
             <button
               type="button"
-              className="btn btn-danger"
+              className="btn ubp_btn-danger"
               onClick={deleteHandler}
             >
               Delete Blog

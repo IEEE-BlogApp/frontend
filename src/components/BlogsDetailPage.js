@@ -5,7 +5,7 @@ import Spinner from "../utils/Spinner";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { Context } from "../index.js";
-
+import "../styles/BlogDetailPage.css"; 
 function BlogsDetailPage() {
   const { user } = useContext(Context);
 console.log(user)
@@ -80,38 +80,38 @@ console.log(user)
     return (
       <div>
         <Navbar />
-        <div className="container" style={{ margin: "10px" }}>
-          <div className="card">
-            <div className="card-body">
-              <h1 className="card-title">{data.title}</h1>
-              <p className="card-text">{data.description}</p>
+        <div className="bdp_container" style={{ margin: "10px" }}>
+          <div className="bdp_card">
+            <div className="bdp_card-body">
+              <h1 className="bdp_card-title">{data.title}</h1>
+              <p className="bdp_card-text">{data.description}</p>
             </div>
           </div>
 
           <div className="mt-4">
             <h2>Comments</h2>
             {data.comments.map((c, index) => (
-              <div className="card" key={index}>
-                <div className="card-body">
-                  <h5 className="card-title">
+              <div className="bdp_card" key={index}>
+                <div className="bdp_card-body">
+                  <h5 className="bdp_card-title">
                     {commentors[index] && commentors[index].name}
                   </h5>
-                  <p className="card-text">{c.comment}</p>
+                  <p className="bdp_card-text">{c.comment}</p>
                 </div>
               </div>
             ))}
           </div>
           <form>
-            <div className="form-group">
+            <div className="bdp_form-group">
               <textarea
-                className="form-control"
+                className="bdp_form-control"
                 rows="3"
                 onChange={(e) => setMessage(e.target.value)}
                 value={message}
               ></textarea>
             </div>
             <button
-              className="btn btn-primary"
+              className="btn bdp_btn-primary"
               onClick={submitHandler}
               type="submit"
             >

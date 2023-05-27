@@ -1,0 +1,53 @@
+.cbp_container {
+    margin-top: 20px;
+  }
+  
+  .cbp_blog-form {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .cbp_form-group {
+    margin-bottom: 20px;
+  }
+  
+  .cbp_form-label {
+    font-weight: bold;
+  }
+  
+  .cbp_form-control {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .cbp_description-input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical; /* Allow vertical resizing of the textarea */
+    box-sizing: border-box; /* Include padding and border in the total width */
+  }
+  
+  
+  .cbp_btn-primary {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+  }
+  
+  .cbp_btn-primary:hover {
+    background-color: #0056b3;
+  }
+  

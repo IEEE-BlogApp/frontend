@@ -1,0 +1,45 @@
+.ubp_container {
+    margin: 20px;
+  }
+  
+  .ubp_form-label {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .ubp_form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: none;
+  }
+  
+  .ubp_btn-primary {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+  }
+  
+  .ubp_btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .ubp_btn-danger {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #dc3545;
+    border: none;
+    border-radius: 8px;
+    
+    color: #fff;
+  }
+  
+  .ubp_btn-danger:hover {
+    background-color: #a71d2a;
+  }
+  

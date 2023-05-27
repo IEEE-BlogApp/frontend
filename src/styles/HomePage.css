@@ -1,31 +1,88 @@
+.container.text-center {
+  margin-top: 50px;
+}
+
+.container.text-center h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.container .row {
+  justify-content: center;
+}
+
+.card {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 20px;
+  height: 200px; /* Set a fixed height for the card body */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 16px;
+  color: #555;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .pagination {
-    /* margin: auto; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 25vh;
-    list-style: none;
-    outline: none;
-  }
-  .pagination > .active > a{
-    background-color: #47ccde ;
-    border-color: #47ccde ;
-    color: #fff;
-  }
-  .pagination > li > a{
-    border: 1px solid #47ccde ;
-    padding: 5px 10px;
-    outline: none;
-    cursor: pointer;
-  }
-  .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
-    background-color: #47ccde ;
-    border-color: #47ccde;
-    outline: none ;
-  }
-  .pagination > li > a, .pagination > li > span{
-    color: #47ccde
-  }
-  .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
-    border-radius: unset
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  list-style: none;
+  outline: none;
+}
+
+.pagination > .active > a,
+.pagination > .active > span {
+  background-color: #47ccde;
+  border-color: #47ccde;
+  color: #fff;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+  border: 1px solid #47ccde;
+  padding: 5px 10px;
+  outline: none;
+  cursor: pointer;
+  color: #47ccde;
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: #47ccde;
+  border-color: #47ccde;
+  outline: none;
+}
+
+.pagination > li:first-child > a,
+.pagination > li:first-child > span,
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  border-radius: unset;
+}
