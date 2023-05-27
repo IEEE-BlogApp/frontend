@@ -13,7 +13,7 @@ import ProfilePage from './components/ProfilePage';
 import CreateBlogPage from './components/CreateBlogPage';
 import CreatedBlogPage from './components/CreatedBlogPage';
 import BlogsDetailPage from './components/BlogsDetailPage';
-
+import UpdateBlogsPage from './components/UpdateBlogsPage';
 import { Context } from './index';
 
 
@@ -63,6 +63,7 @@ function App() {
           <Route path="/created" element={<CreatedBlogPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/blogs/:id" element={<BlogsDetailPage />} />
+          <Route path="/blogs/update/:id" element={<UpdateBlogsPage />} />
         </Routes>
         <Toaster />
       </div>

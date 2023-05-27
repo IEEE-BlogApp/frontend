@@ -3,12 +3,12 @@ import { Context } from "../index.js";
 import axios from "axios";
 import Spinner from "../utils/Spinner.js";
 import Navbar from "./Navbar.js";
+import { Routes, Route, Link } from "react-router-dom";
 
 function CreatedBlogPage() {
   const { user } = useContext(Context);
   const [data, setData] = useState([]);
   const [loading1, setLoading1] = useState(true);
-  const { loading } = useContext(Context);
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -27,9 +27,9 @@ function CreatedBlogPage() {
     };
 
     fetchBlogs();
-  }, [user]);
+  }, [user, loading1]);
 
-  if (loading || loading1) {
+  if (loading1) {
     return <Spinner />;
   } else {
     return (
@@ -38,20 +38,26 @@ function CreatedBlogPage() {
         <div className="container" style={{ margin: "10px" }}>
           <h1 className="mb-4">Hello {user.name}, these are your created blogs</h1>
           {data.map((blog) => (
-            <div key={blog._id} className="card mb-4">
-              <div className="card-body">
-                <h2 className="card-title">{blog.title}</h2>
-                <p className="card-text">{blog.description}</p>
-                <h2 className="card-title">Comments</h2>
-                {blog.comments.map((comment) => (
-                  <div key={comment._id} className="card mb-2">
-                    <div className="card-body">
-                      <p className="card-text">{comment.comment}</p>
+            <Link
+              key={blog._id}
+              to={`/blogs/update/${blog._id}`}
+              className="col-md-4 mb-4"
+            >
+              <div key={blog._id} className="card mb-4">
+                <div className="card-body">
+                  <h2 className="card-title">{blog.title}</h2>
+                  <p className="card-text">{blog.description}</p>
+                  <h2 className="card-title">Comments</h2>
+                  {blog.comments.map((comment) => (
+                    <div key={comment._id} className="card mb-2">
+                      <div className="card-body">
+                        <p className="card-text">{comment.comment}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </>
@@ -60,6 +66,5 @@ function CreatedBlogPage() {
 }
 
 export default CreatedBlogPage;
-
 
 

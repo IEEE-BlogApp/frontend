@@ -6,22 +6,17 @@ import axios from "axios";
 import {
   MDBBtn,
   MDBContainer,
-  MDBCard,
-  MDBCardBody,
-  MDBCardImage,
   MDBRow,
   MDBCol,
-  MDBIcon,
   MDBInput,
 } from "mdb-react-ui-kit";
 import "../styles/LogReg.css";
 
 function LoginPage() {
-  const { isAuthenticated, setIsAuthenticated, loading,setLoading } =
+  const { isAuthenticated, setIsAuthenticated, loading, setLoading } =
     useContext(Context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [loading, setLoading] = useState(false);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -42,7 +37,6 @@ function LoginPage() {
         }
       );
 
-      // toast.success(data.message);
       setIsAuthenticated(true);
       setLoading(false);
     } catch (error) {
@@ -51,7 +45,7 @@ function LoginPage() {
       setIsAuthenticated(false);
     }
   };
-  console.log(isAuthenticated)
+
   if (isAuthenticated) {
     return <Navigate to={"/home"} />;
   }
@@ -98,27 +92,6 @@ function LoginPage() {
               Sign in
             </MDBBtn>
           </form>
-          <div className="divider d-flex align-items-center my-4">
-            <p className="text-center fw-bold mx-3 mb-0">OR</p>
-          </div>
-
-          <MDBBtn
-            className="mb-4 w-100"
-            size="lg"
-            style={{ backgroundColor: "#3b5998" }}
-          >
-            <MDBIcon fab icon="facebook-f" className="mx-2" />
-            Continue with Facebook
-          </MDBBtn>
-
-          <MDBBtn
-            className="mb-4 w-100"
-            size="lg"
-            style={{ backgroundColor: "#55acee" }}
-          >
-            <MDBIcon fab icon="twitter" className="mx-2" />
-            Continue with Twitter
-          </MDBBtn>
         </MDBCol>
       </MDBRow>
     </MDBContainer>
